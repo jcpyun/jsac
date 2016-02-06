@@ -8,7 +8,7 @@ from .models import *
 
 class userForm(ModelForm):
     class Meta:
-        model= university
+        model= University
         fields=['college',
                 'state',
                 'city',

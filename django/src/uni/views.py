@@ -22,7 +22,7 @@ def home(request):
     ##### FORMS #####
     current_user = request.user    #this displays current user
     #####
-    queryset=university.objects.all()####### 
+    queryset=University.objects.all()####### 
     checkmark=queryset[0].checktest
     
     
