@@ -9,7 +9,7 @@ class UniversityData(models.Model):
     coordinator_email = models.CharField(max_length=100, default='')
 
 class University(models.Model):
-    college = models.CharField(max_length=80, default='')
+    college = models.OneToOneField(UniversityData, related_name='form_data')
     logo= models.TextField(blank=True)
     state = models.CharField(max_length=80, default='')
     city = models.CharField(max_length=80, default='')
