@@ -38,19 +38,20 @@
 						</div>
 						<div class="search-result-title">
 							<div class="search-result-uni-name">
+<<<<<<< HEAD
+								{{ uni.university_name }}
+							</div>
+							<div class="search-result-statistic">
+								{{ uni.topic }}
+=======
 								{{ uni.college }}
+>>>>>>> 496369d2508f38863912bdbfdfe8eb4ac5b18f45
 							</div>
 						</div>
 					</div>
 					<div class="search-result-body">
 						<div class="search-result-description">
-							{% if query0 == "consent" %}
-							{{ uni.consentDesc|truncatechars:110 }}
-							{% elif query0 == "primary prevention" %}
-							{{ uni.primarypreventionDesc|truncatechars:110 }}
-							{% elif query0 == "sexual assault" %}
-							{{ uni.sexualassaultDesc|truncatechars:110 }}
-							{% endif %}
+							{{ uni.description }}
 						</div>
 					</div>
 					<div class="search-result-footer">
