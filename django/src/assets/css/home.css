@@ -21,7 +21,7 @@ body {
   margin-top: 25px;
 }
 .search .search-bar .search-box {
-  width: 400px;
+  width: 100%;
   padding: 10px 0 10px 15px;
   border-radius: 5px;
 }
@@ -37,4 +37,18 @@ body {
 }
 .info-block .step1-info-block .step1-image {
   background-image: url(../images/check-icon.jpg);
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 22px;
+    padding: 10px;
+    background-color: #5E5CC7;
+    color: white;
 }
