@@ -13,22 +13,22 @@
 
 {% block content %}
 <div class="build-page">
-    <div class="row cat-title first-cat">
-        <h2 class="cat-title-txt">Build Your University Profile</h2>
-        <form>
-            University <input type="text" name="university"><br>
-            Coordinator <input type="text" name="coordinator"><br>
-            Contact Email <input type="text" name="email"><br>
-            Logo URL <input type="text" name="logo"><br>
-        </form>
-    </div>
-    <div class="row build-footer">
-        <div class="build-info">
-            First, we'll need your basic information.
+    <form method="post">{% csrf_token %}
+        <div class="row cat-title first-cat">
+            <h2 class="cat-title-txt">Build Your University Profile</h2>
+            <label for="university">University</label><input type="text" id="university" name="university"><br>
+            <label for="coordinator">Coordinator</label><input type="text" id="coordinator" name="coordinator"><br>
+            <label for="email">Contact Email</label><input type="text" id="email" name="email"><br>
+            <label for="logo">Logo URL</label><input type="text" id="logo" name="logo"><br>
         </div>
-        <div class="build-continue">
-            <input type="submit" value="Continue">
+        <div class="row build-footer">
+            <div class="build-info">
+                First, we'll need your basic information.
+            </div>
+            <div class="build-continue">
+                <input type="submit" value="Continue">
+            </div>
         </div>
-    </div>   
+    </form>
 </div>
 {% endblock %}
