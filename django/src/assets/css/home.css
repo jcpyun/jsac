@@ -51,4 +51,10 @@ body {
     padding: 10px;
     background-color: #5E5CC7;
     color: white;
+    border-bottom: 4px solid #534F8B;
+    padding-bottom: 8px;
+}
+
+.search-icon:hover {
+  cursor: pointer;
 }

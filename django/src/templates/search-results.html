@@ -18,8 +18,9 @@
 			<!-- <input class="search-result-input" placeholder="Search..."> -->
 			<ul id="myTags" class="search-result-input">
 			    <!-- Existing list items will be pre-added to the tags -->
-			    <li>consent</li>
-			    <li>training</li>
+			    {% for q_term in q %}
+			    	<li>{{ q_term }}</li>
+			    {% endfor %}
 			</ul>
 			<i class="glyphicon glyphicon-search search-icon"></i>
 			

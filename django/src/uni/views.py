@@ -70,7 +70,10 @@ fakeResultsData = [
 class SearchPage(View):
     def get(self, request):
         context = {}
+        query = request.GET.get("q")
+        query = query.split(",")
         context["universities"] = fakeResultsData
+        context["q"] = query
         return render(request, 'search-results.html', context)
 
 
