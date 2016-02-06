@@ -72,6 +72,7 @@ class SearchPage(View):
     def get(self, request):
         context = {}
         query = request.GET.get("q")
+        if not query: query = ""
         query = query.split(",")
         unis = University.objects.all()
         result = []
@@ -98,7 +99,8 @@ class SearchPage(View):
 class CreateUniv(View):
     def post(self, request):
         data = request.POST
-        instance = University() #here, we'd get the current session's university
+        print dict(data)
+        instance = University(college="CMU") #here, we'd get the current session's university
         instance.riskreduction = data.get('policies-riskreduction')
         instance.riskreductionDesc = data.get('policies-riskreductiondesc')
         instance.primaryprevention = data.get('policies-primaryprevention')
@@ -145,7 +147,10 @@ class CreateUniv(View):
         instance.aboutreportingonline = data.get('awareness-aboutreportingonline')
 
         instance.save()
-        return redirect('/university_page/')
+        return HttpResponseRedirect('/')
+
+    def __str__(self):
+        return self.college
 
 class BuildProfile(View):
     def get(self, request):

@@ -1,10 +1,398 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block head %}
+	<link href="{% static 'css/policy_form.css' %}" rel="stylesheet">
+	<script src="{% static 'js/policy_form.js' %}"></script>
+{% endblock %}
+
 {% block navbar %}
 	{% include 'navbar.html' %}
 {% endblock %}
 
 {% block content %}
-	
+	<div class="row row-bar">
+		<div class="bar col-xs-3 col-md-3 first-bar" data-num="1">
+		</div>
+		<div class="bar col-xs-3 col-md-3 second-bar" data-num="2">
+		</div>
+		<div class="bar col-xs-3 col-md-3 third-bar" data-num="3">
+		</div>
+		<div class="bar col-xs-3 col-md-3 fourth-bar" data-num="4">
+		</div>
+		<div class="circle first half-empty">
+		</div>
+		<div class="circle second">
+		</div>
+		<div class="circle third">
+		</div>
+		<div class="circle fourth">
+		</div>
+		<div class="circle fifth ">
+		</div>
+		<div class="under-text first-text">Policies</div>
+		<div class="under-text second-text">Groups</div>
+		<div class="under-text third-text">Statistics</div>
+		<div class="under-text fourth-text">Training</div>
+		<div class="under-text fifth-text">Awareness</div>
+	</div>
+
+<form method="POST" action="/create_uni/">
+	{% csrf_token %}
+	<div class="row collapsing-row first-row active">
+
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a class="link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Risk Reduction
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="policies-riskreductiondesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		         	<i class="glyphicon glyphicon-record select-circle"></i>Primary Prevention
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="policies-primarypreventiondesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Faculty/Staff Training
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="policies-facultystafftrainingdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+	<div class="row collapsing-row second-row">
+
+		<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="heading4">
+		      <h4 class="panel-title">
+		        <a class="link-clicker" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Title IX Office
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="groups-titleixofficedesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="heading5">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+		         	<i class="glyphicon glyphicon-record select-circle"></i>Volunteer Group
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="groups-volunteergroupdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="heading6">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Student Initiative
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="groups-studentinitiativedesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="heading7">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Mens Group
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="groups-mensgroupdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="heading8">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Other Offices
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="groups-otherofficesdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+	<div class="row collapsing-row third-row">
+
+		<div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a class="link-clicker" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse9" aria-expanded="true" aria-controls="collapse9">
+		          <i class="glyphicon glyphicon-record select-circle"></i>On Campus Reports
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="stats-oncampusreportsdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+		         	<i class="glyphicon glyphicon-record select-circle"></i>All Reports
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="stats-allreportsdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Climate Study
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="stats-climatestudydesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+	<div class="row collapsing-row fourth-row">
+
+		<div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a class="link-clicker" role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapse12" aria-expanded="true" aria-controls="collapse12">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Consent
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="training-consentdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapse13" aria-expanded="false" aria-controls="collapse13">
+		         	<i class="glyphicon glyphicon-record select-circle"></i>Sexual Assault
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="training-sexualassaultdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapse14" aria-expanded="false" aria-controls="collapse14">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Sexual Harassment
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="training-sexualharassmentdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapse15" aria-expanded="false" aria-controls="collapse15">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Stalking
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="training-stalkingdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapse16" aria-expanded="false" aria-controls="collapse16">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Dating Violence
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse16" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="training-datingviolencedesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapse17" aria-expanded="false" aria-controls="collapse17">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Domestic Violence
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse17" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="training-domesticviolencedesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+	<div class="row collapsing-row fifth-row">
+
+		<div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a class="link-clicker" role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapse18" aria-expanded="true" aria-controls="collapse18">
+		          <i class="glyphicon glyphicon-record select-circle"></i>About Policies
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="awareness-aboutpoliciesdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapse19" aria-expanded="false" aria-controls="collapse19">
+		         	<i class="glyphicon glyphicon-record select-circle"></i>About Reporting
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea name="awareness-aboutreportingdesc" placeholder="Describe your policies here..."></textarea>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+	<div class="row controls-row">
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<div class="control-btn btn prev-btn"><i style="margin-right:5px; font-size:80%;" class="glyphicon glyphicon-menu-left"></i>Previous</div>
+		</div>
+		<div class="col-md-offset-8 col-md-2 col-sm-offset-6 col-sm-3 col-xs-6 next-btn-container">
+			<div class="control-btn btn next-btn">Next<i style="margin-left:5px; font-size:80%;" class="glyphicon glyphicon-menu-right"></i></div>
+		</div>
+		<div class="col-md-offset-8 col-md-2 col-sm-offset-6 col-sm-3 col-xs-6 submit-btn-container" style="display:none;">
+				<button class="control-btn btn submit-btn">Submit<i style="margin-left:5px; font-size:80%;" class="glyphicon glyphicon-menu-right"></i></button>
+		</div>
+	</div>
+</form>
+
+
+
+
+
 {% endblock %}

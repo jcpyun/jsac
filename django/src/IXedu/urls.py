@@ -20,7 +20,7 @@ from uni.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', 'uni.views.home',name='home'),
-    url(r'^create_uni/$', 'uni.views.create_uni',name='create_uni'),
+    url(r'^create_uni/$', CreateUniv.as_view()),
     url(r'^university_page/$', 'uni.views.university_page',name='university_page'),
     url(r'^login/$', 'django.contrib.auth.views.login',name="login"),
     url(r'^signup/$', BuildProfile.as_view()),
@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^create_univ/$', CreateUniv.as_view()),
 
     url(r'^$','uni.views.home',name='home'),
-    url(r'^search$', SearchPage.as_view())
+    url(r'^search$', SearchPage.as_view()),
+    url(r'^policyform$', PolicyForm.as_view()),
 
 ]
