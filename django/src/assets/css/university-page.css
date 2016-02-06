@@ -1,0 +1,34 @@
+.content {
+  background-image: url(../images/hands-raised.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 50vh;
+}
+.univ-logo {
+  text-align: center;
+}
+.logo-img {
+  width: 30vh;
+  height: 30vh;
+  border: 2px solid gray;
+  margin-top: 15%;
+}
+.univ-name {
+  position: absolute;
+  top: 62vh;
+  margin-left: 0;
+  width: 100%;
+}
+.univ-name .univ-name-txt {
+  font-weight: 100;
+  text-align: center;
+}
+.cat-title {
+  margin-left: 25px;
+}
+.cat-title .cat-title-txt {
+  font-weight: 100;
+}
+.cat-title.first-cat {
+  padding-top: 25vh;
+}
