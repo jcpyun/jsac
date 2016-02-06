@@ -2,6 +2,12 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+class UniversityData(models.Model):
+    name = models.CharField(max_length=100, default='')
+    logo = models.CharField(max_length=300, default='')
+    coordinator = models.CharField(max_length=100, default='')
+    coordinator_email = models.CharField(max_length=100, default='')
+
 class University(models.Model):
     college = models.CharField(max_length=80, default='')
     logo= models.TextField(blank=True)
