@@ -7,6 +7,7 @@ body {
   font-size: 2em;
   line-height: 1;
   margin: 10px 0 0 10px;
+  display: inline-block;
 }
 .nav-bar .IX-title {
   color: #606eb9;
