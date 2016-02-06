@@ -17,7 +17,6 @@
         <div class="nav-bar">
             <div class="site-title"><span class="IX-title">IX</span>EDU</div>
         </div>
-    {% endblock %}
 
     <div class="login-bar">
         {% if request.user.is_authenticated %}
@@ -44,6 +43,7 @@
         </form>
         {% endif %}
     </div>
+    {% endblock %}
 
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
