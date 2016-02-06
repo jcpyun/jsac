@@ -9,7 +9,7 @@ import datetime
 def home(request):
     template= "home.html"
     
-    form = University(request.POST or None)
+    form = university(request.POST or None)
     if form.is_valid():
         instance= form.save(commit=False)
       
@@ -67,6 +67,7 @@ fakeResultsData = [
     },
 ]
 
+
 class SearchPage(View):
     def get(self, request):
         context = {}
@@ -94,16 +95,86 @@ class SearchPage(View):
         context["query0"] = query[0]
         return render(request, 'search-results.html', context)
 
+class CreateUniv(View):
+    def post(self, request):
+        data = request.POST
+        instance = University()
+        instance.riskreduction = data.get('policies-riskreduction')
+        instance.riskreductionDesc = data.get('policies-riskreductiondesc')
+        instance.primaryprevention = data.get('policies-primaryprevention')
+        instance.primarypreventionDesc = data.get('policies-primarypreventiondesc')
+        instance.facultystafftraining = data.get('policies-facultystafftraining')
+        instance.facultystafftrainingDesc = data.get('policies-facultystafftrainingdesc')
+
+        instance.titleixoffice = data.get('groups-titleixoffice')
+        instance.titleixofficeDesc = data.get('groups-titleixofficedesc')
+        instance.volunteergroup = data.get('groups-volunteergroup')
+        instance.volunteergroupDesc = data.get('groups-volunteergroupdesc')
+        instance.studentinitiative = data.get('groups-studentinitiative')
+        instance.studentinitiativeDesc = data.get('groups-studentinitiativedesc')
+        instance.mensgroup = data.get('groups-mensgroup')
+        instance.mensgroupDesc = data.get('groups-mensgroupdesc')
+        instance.otheroffices = data.get('groups-otheroffices')
+        instance.otherofficesDesc = data.get('groups-otherofficesdesc')
+
+        instance.oncampusreports = data.get('stats-oncampusreports')
+        instance.oncampusreportsDesc = data.get('stats-oncampusreportsdesc')
+        instance.allreports = data.get('stats-allreports')
+        instance.allreportsDesc = data.get('stats-allreportsdesc')
+        instance.climatestudy = data.get('stats-climatestudy')
+        instance.climatestudyDesc = data.get('stats-climatestudydesc')
+
+        instance.consent = data.get('training-consent')
+        instance.consentDesc = data.get('training-consentdesc')
+        instance.sexualassault = data.get('training-sexualassault')
+        instance.sexualassaultDesc = data.get('training-sexualassaultdesc')
+        instance.sexualharassment = data.get('training-sexualharassment')
+        instance.sexualharassmentDesc = data.get('training-sexualharassmentdesc')
+        instance.stalking = data.get('training-stalking')
+        instance.stalkingDesc = data.get('training-stalkingdesc')
+        instance.datingviolence = data.get('training-datingviolence')
+        instance.datingviolenceDesc = data.get('training-datingviolencedesc')
+        instance.domesticviolence = data.get('training-domesticviolence')
+        instance.domesticviolenceDesc = data.get('training-domesticviolencedesc')
+
+        instance.aboutpolicies = data.get('awareness-aboutpolicies')
+        instance.aboutpoliciesDesc = data.get('awareness-aboutpoliciesdesc')
+        instance.aboutpoliciesonline = data.get('awareness-aboutpoliciesonline')
+        instance.aboutreporting = data.get('awareness-aboutreporting')
+        instance.aboutreportingDesc = data.get('awareness-aboutreportingdesc')
+        instance.aboutreportingonline = data.get('awareness-aboutreportingonline')
+
+        instance.save()
+        return redirect('/university_page/')
 
 def create_uni(request):
     template="form.html"
-    form = University(request.POST or None)
+    form = university(request.POST or None)
     if form.is_valid():
         instance= form.save(commit=False)
       
         instance.save()
     context={
         "form": form,
-
     }
     return render(request,template,context)
+
+
+def university_page(request):
+    template="university_page.html" 
+    alluni= University.objects.all()
+    data_dump=[]
+    for x in alluni:
+        if x.college=="CMU":
+            data_dump=x
+    
+    context={
+        "data": data_dump,
+        "pitt": "https://upload.wikimedia.org/wikipedia/commons/5/57/PittPanthers.png",
+        "columbia": "http://vignette2.wikia.nocookie.net/nba/images/c/c7/Columbia_University.png/revision/latest?cb=20110506170850",
+    }
+    return render(request,template,context)
+
+class PolicyForm(View):
+    def get(self, request):
+        return render(request, 'policy_form.html')
