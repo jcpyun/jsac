@@ -8,14 +8,14 @@ import datetime
 # Create your views here.
 def home(request):
     template= "home.html"
-    
+
     form = university(request.POST or None)
     if form.is_valid():
         instance= form.save(commit=False)
-      
+
         instance.save()
-    
-  
+
+
     ##### FORMS #####
     current_user = request.user    #this displays current user
     #####
@@ -23,9 +23,9 @@ def home(request):
         "form": form,
 
         "current_user": current_user,
-        
+
     }
-    
+
     return render(request,template,context)
 
 fakeResultsData = [
@@ -80,7 +80,7 @@ class SearchPage(View):
 class CreateUniv(View):
     def post(self, request):
         data = request.POST
-        instance = University()
+        instance = University() #here, we'd get the current session's university
         instance.riskreduction = data.get('policies-riskreduction')
         instance.riskreductionDesc = data.get('policies-riskreductiondesc')
         instance.primaryprevention = data.get('policies-primaryprevention')
@@ -129,12 +129,23 @@ class CreateUniv(View):
         instance.save()
         return redirect('/university_page/')
 
+class BuildProfile(View):
+    def get(request):
+        return render(request, 'build-profile.html')
+    def post(request):
+        data = request.POST
+        instance = University()
+        instance.college = data.get('college')
+        instance.logo = data.get('logo')
+        instance.save()
+        return redirect('/form-information/')
+
 def create_uni(request):
     template="form.html"
     form = university(request.POST or None)
     if form.is_valid():
         instance= form.save(commit=False)
-      
+
         instance.save()
     context={
         "form": form,
@@ -143,13 +154,13 @@ def create_uni(request):
 
 
 def university_page(request):
-    template="university_page.html" 
+    template="university_page.html"
     alluni= University.objects.all()
     data_dump=[]
     for x in alluni:
         if x.college=="CMU":
             data_dump=x
-    
+
     context={
         "data": data_dump,
         "pitt": "https://upload.wikimedia.org/wikipedia/commons/5/57/PittPanthers.png",
