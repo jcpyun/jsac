@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/search-results.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/tagit/jquery.tagit.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/tagit/tagit.ui-zendesk.css' %}"/>
+	<script src="{% static 'js/tag-it.min.js' %}"></script>
+{% endblock %}
+
+{% block navbar %}
+	<div class="nav-bar">
+        <div class="site-title"><span class="IX-title">IX</span>EDU</div>
+    </div>
+{% endblock %}
+
+{% block content %}
+	<div class="">
+		<div class="search-result-input-container">
+			<!-- <input class="search-result-input" placeholder="Search..."> -->
+			<ul id="myTags" class="search-result-input">
+			    <!-- Existing list items will be pre-added to the tags -->
+			    <li>consent</li>
+			    <li>training</li>
+			</ul>
+			<i class="glyphicon glyphicon-search search-icon"></i>
+			
+		</div>
+	</div>
+	<div class="row search-result-row">
+		{% for uni in universities %}
+			<div class="col-md-4 col-sm-6 col-xs-10">
+				<div class="search-result-panel">
+					<div class="search-result-header">
+						<div class="search-result-img-container">
+							<img src="{{ uni.university_pic }}" class="img-circle search-result-img">
+						</div>
+						<div class="search-result-title">
+							<div class="search-result-uni-name">
+								{{ uni.university_name }}
+							</div>
+							<div class="search-result-statistic">
+								{{ uni.statistic }}
+							</div>
+						</div>
+					</div>
+					<div class="search-result-body">
+						<div class="search-result-description">
+							{{ uni.description|truncatechars:110 }}
+						</div>
+					</div>
+					<div class="search-result-footer">
+						<a href="#paperclip"><i class="glyphicon glyphicon-paperclip"></i></a>
+						<a href="#picture" style="margin-left:8px;"><i class="glyphicon glyphicon-picture"></i></a>
+					</div>
+				</div>	
+			</div>
+		{% endfor %}
+	</div>
+	<script type="text/javascript">
+    	$(document).ready(function() {
+	        $("#myTags").tagit();
+	    });
+	</script>
+{% endblock %}

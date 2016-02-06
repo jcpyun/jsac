@@ -5,14 +5,19 @@
         <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.css' %}"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
         <title>{% block title %}{% endblock %} - IXEDU</title>
     {% block head %}
     {% endblock %}
 </head>
 <body>
-    <div class="nav-bar">
-        <div class="site-title"><span class="IX-title">IX</span>EDU</div>
-    </div>
+    {% block navbar %}
+        <div class="nav-bar">
+            <div class="site-title"><span class="IX-title">IX</span>EDU</div>
+        </div>
+    {% endblock %}
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
         {% block footer %}{% endblock %}

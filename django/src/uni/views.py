@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, render_to_response, RequestContext
-
+from django.views.generic.base import View
+from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import *
 from .forms import *
@@ -48,4 +49,50 @@ def home(request):
     }
     
     return render(request,template,context)
+
+fakeResultsData = [
+    {
+        "university_name": "Carnegie Mellon University",
+        "statistic": "arbitrary statistic",
+        "university_pic": "http://www.cmu.edu/homeimages/CarnegieMellonUniversity_wordmark.gif",
+        "description": "Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis"
+    },
+    {
+        "university_name": "Carnegie Mellon University",
+        "statistic": "arbitrary statistic",
+        "university_pic": "http://www.cmu.edu/homeimages/CarnegieMellonUniversity_wordmark.gif",
+        "description": "Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis"
+    },
+    {
+        "university_name": "Carnegie Mellon University",
+        "statistic": "arbitrary statistic",
+        "university_pic": "http://www.cmu.edu/homeimages/CarnegieMellonUniversity_wordmark.gif",
+        "description": "Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis"
+    },
+    {
+        "university_name": "Carnegie Mellon University",
+        "statistic": "arbitrary statistic",
+        "university_pic": "http://www.cmu.edu/homeimages/CarnegieMellonUniversity_wordmark.gif",
+        "description": "Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis"
+    },
+    {
+        "university_name": "Carnegie Mellon University",
+        "statistic": "arbitrary statistic",
+        "university_pic": "http://www.cmu.edu/homeimages/CarnegieMellonUniversity_wordmark.gif",
+        "description": "Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis"
+    },
+    {
+        "university_name": "Carnegie Mellon University",
+        "statistic": "arbitrary statistic",
+        "university_pic": "http://www.cmu.edu/homeimages/CarnegieMellonUniversity_wordmark.gif",
+        "description": "Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis Lorem ipsum dolor sit amet, consecture, adipscing ecit. Maunis"
+    },
+]
+
+class SearchPage(View):
+    def get(self, request):
+        context = {}
+        context["universities"] = fakeResultsData
+        return render(request, 'search-results.html', context)
+
 

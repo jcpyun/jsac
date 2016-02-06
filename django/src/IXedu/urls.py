@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from uni.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,6 +24,7 @@ urlpatterns = [
     url(r'^logout/$', 'django.contrib.auth.views.logout',name="logout"),
 
 
-    url(r'^$','uni.views.home',name='home')
+    url(r'^$','uni.views.home',name='home'),
+    url(r'^search$', SearchPage.as_view())
 
 ]
