@@ -1,0 +1,35 @@
+body {
+  background-image: url(../images/hands-raised.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.search {
+  text-align: center;
+  margin-top: 20vh;
+}
+.search .hero-title {
+  font-weight: 100;
+  font-size: 1.4em;
+  color: white;
+}
+.search .search-bar {
+  margin-top: 25px;
+}
+.search .search-bar .search-box {
+  width: 400px;
+  padding: 10px 0 10px 15px;
+  border-radius: 5px;
+}
+.info-block {
+  background-color: white;
+  position: absolute;
+  top: 75vh;
+  width: 100%;
+  height: 400px;
+}
+.info-block .step1-info-block {
+  margin-left: 15vw;
+}
+.info-block .step1-info-block .step1-image {
+  background-image: url(../images/check-icon.jpg);
+}

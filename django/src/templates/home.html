@@ -1,33 +1,36 @@
-<body style= "background-color:pink">
+{% extends "base.html" %}
+{% load staticfiles %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+{% endblock %}
 
-{% if request.user.is_authenticated %}
-<h1>hello {{ current_user }} </h1> 
-<a href="{% url 'logout' %}?next=/home/">Logout</a>
-<!--<form method='POST' action=''> {% csrf_token %}
-    {{ form.as_p }}
-    <input class="btn btn-danger btn-lg img-fade" type='submit' value='gulp'>
-    
-</form>-->
-<form method='POST' action=''>{% csrf_token %}
-{{ form }}
-<input type='submit' value='WOW'>
-</form>
-{{ university }}
-{{ checkmark }}
-<h1> hi </h1>
-{% else %} 
+{% block title %}Browse{% endblock %}
 
-
-<form class = 'navbar-form navbar-center' method = 'POST' action = '{% url "login" %}'>{% csrf_token %}
-            <div class= 'form-group'>
-              <input type= 'text' class = 'form-control' name = 'username' placeholder = 'Username' />
+{% block content %}
+<div class="search">
+    <div class="hero-title">
+        Discover strategies for primary prevention
+    </div>
+    <form class="search-form">
+        <div class="search-bar">
+            <input type="text"
+            name="search-value"
+            placeholder="consent"
+            class="search-box">
+        </div>
+    </form>
+</div>
+<!--<div class="info-block">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <div class="step1-info-block">
+                <div class="step1-image"></div>
+                <div class="step1-desc">
+                    Fill out the information for your university.
+                </div>
             </div>
-            <div class = 'form-group'>
-              <input type= 'password' class = 'form-control' name = 'password' placeholder = 'Password' />
-            </div>
-
-            <button type= 'submit' class= 'btn btn-default'><i class="fa fa-user"></i> Login</button>
-</form>
-
-{% endif %}
+        </div>
+    </div>
+</div>-->
+{% endblock %}

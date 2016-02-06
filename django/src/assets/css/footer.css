@@ -1,0 +1,18 @@
+.footer{
+    padding: 20px;
+    background: #606eb9;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+
+    margin-top: 400px;
+}
+
+.with-love {
+    width: 50vw;
+}
+
+.footer-names {
+    margin-left: 75vw;
+    margin-top: -1.4em;
+    width: 50vw;
+}

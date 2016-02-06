@@ -1,0 +1,14 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.nav-bar {
+  color: white;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 1;
+  margin: 10px 0 0 10px;
+}
+.nav-bar .IX-title {
+  color: #606eb9;
+  font-weight: 800;
+}
