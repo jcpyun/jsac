@@ -11,6 +11,7 @@ class University(ModelForm):
         model= University
         exclude=['']
 
+
 # class ArticleForm(ModelForm):
 # ...     class Meta:
 # ...         model = Article

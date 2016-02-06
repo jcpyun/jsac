@@ -1,4 +1,8 @@
 {% load staticfiles %}
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,33 @@
     <div class="nav-bar">
         <div class="site-title"><span class="IX-title">IX</span>EDU</div>
     </div>
+
+
+    <!-- ############################user auth ############################################### -->
+{% if request.user.is_authenticated %}
+<h1>hello {{ current_user }} </h1> 
+<a href="{% url 'logout' %}?next=/home/">Logout</a>
+{% else %} 
+<form class = 'navbar-form navbar-center' method = 'POST' action = '{% url "login" %}'>{% csrf_token %}
+            <div class= 'form-group'>
+              <input type= 'text' class = 'form-control' name = 'username' placeholder = 'Username' />
+            </div>
+            <div class = 'form-group'>
+              <input type= 'password' class = 'form-control' name = 'password' placeholder = 'Password' />
+            </div>
+
+            <button type= 'submit' class= 'btn btn-default'><i class="fa fa-user"></i> Login</button>
+</form>
+{% endif %}
+<!-- ########################################################################### -->
+
+
+
+
     <div id="content">{% block content %}{% endblock %}</div>
+    {% if request.user.is_authenticated %}
+    
+    {% endif %}
     <div id="footer">
         {% block footer %}{% endblock %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}"/>
@@ -32,4 +62,8 @@
         </div>
     </div>
 </body>
+
+
+
+
 </html>

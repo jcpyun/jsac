@@ -1,0 +1,94 @@
+<form>
+	<h3>We Offer:</h3>
+	<input type="checkbox" name="risk_reducton">Risk Reduction Education<br>
+	<input type="checkbox" name="primary_prevention">Primary Prevention Education<br>
+    <div>
+    	<input type="checkbox" name="freshmen">For Freshmen<br>
+    	<div>
+    		<input type="checkbox" name="freshmen_online">Online<br>
+    		<div>
+    			<input type="checkbox" name="freshmen_offtheshelf">We chose an off the shelf product.<br>
+                Which product? <input type="text" name="freshmen_product">
+            </div>
+    		<input type="checkbox" name="freshmen_person">In-Person<br>
+    		Number of Hours: <input type="text" name="freshmen_hours"><br>
+    	</div>
+
+    	<input type="checkbox" name="upperclassmen">For Upperclassmen<br>
+    	<div>
+    		<input type="checkbox" name="upperclassmen_online">Online<br>
+    		<div>
+    			<input type="checkbox" name="upperclassmen_offtheshelf">We chose an off the shelf product.<br>
+                Which product? <input type="text" name="upperclassmen_product">
+            </div>
+    		<input type="checkbox" name="upperclassmen_person">In-Person<br>
+    		Number of Hours: <input type="text" name="upperclassmen_hours"><br>
+    	</div>
+
+    	<input type="checkbox" name="grad">For Graduate Students<br>
+    	<div>
+    		<input type="checkbox" name="grad_online">Online<br>
+    		<div>
+    			<input type="checkbox" name="grad_offtheshelf">We chose an off the shelf product.<br>
+                Which product? <input type="text" name="grad_product">
+            </div>
+    		<input type="checkbox" name="grad_person">In-Person<br>
+    		Number of Hours: <input type="text" name="grad_hours"><br>
+    	</div>	
+    </div>
+
+	<input type="checkbox" name="staff_training">Faculty and Staff Training<br>
+	<div>
+		<input type="checkbox" name="staff_online">Online<br>
+		<input type="checkbox" name="staff_person">In-Person<br>
+		<input type="checkbox" name="staff_refresher">We have repeated training for our staff.<br>
+		<div>
+			How often? <input type="text" name="staff_often"><br>
+		</div>
+	</div>	
+</form>
+
+<form>
+	<h3>We teach about:</h3>
+	<input type="checkbox" name="consent">Consent<br>
+	<input type="checkbox" name="sexual_harassment">Sexual Harassment<br>
+	<input type="checkbox" name="sexual_assault">Sexual Assault<br>
+	<input type="checkbox" name="dating">Dating and Domestic Violence<br>
+	<input type="checkbox" name="stalking">Stalking<br>
+</form>
+
+<form>
+	<h3>We have information available about:</h3>
+	<input type="checkbox" name="policies">Our Policies<br>
+	<div>
+		<input type="checkbox" name="policies_online">This information is readily available online.<br>
+	</div>
+	<input type="checkbox" name="reporting">Reporting<br>
+	<div>
+		<input type="checkbox" name="reporting_online">This information is readily available online.<br>
+	</div>
+</form>
+
+<form>
+	<h3>Groups:</h3>
+	<input type="checkbox" name="titleix">Title IX Office<br>
+	<input type="checkbox" name="volunteer">Volunteer Group<br>
+	<input type="checkbox" name="student_initiative">Student Initiative<br>
+	<input type="checkbox" name="men">Men's Group<br>
+	<input type="checkbox" name="other">Other offices that partner in prevention efforts<br>
+</form>
+
+<form>
+	<h3>We get our statistics through:</h3>
+	<input type="checkbox" name="oncampus">On Campus Reports<br>
+	<input type="checkbox" name="all_reports">All Student Reports<br>
+	<input type="checkbox" name="climate_study">Climate Studies<br>
+</form>
+
+
+
+<!-- ####### BELOW ARE THE FORMS #### -->
+<form method='POST' action=''>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' name="button_1" value='WOW' />
+</form>
