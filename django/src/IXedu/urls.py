@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^login/$', 'django.contrib.auth.views.login',name="login"),
     url(r'^logout/$', 'django.contrib.auth.views.logout',name="logout"),
 
+    url(r'^create_univ/$', CreateUniv.as_view()),
 
     url(r'^$','uni.views.home',name='home'),
     url(r'^search$', SearchPage.as_view())
