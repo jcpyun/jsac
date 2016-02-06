@@ -16,6 +16,7 @@
     {% block navbar %}
         <div class="nav-bar">
             <div class="site-title"><span class="IX-title">IX</span>EDU</div>
+            <div class="right-site-title"><a href="/signup" class="register-btn">Register University</a></div>
         </div>
 
     <div class="login-bar">
@@ -46,25 +47,6 @@
     {% endblock %}
 
     <div id="content">{% block content %}{% endblock %}</div>
-
-    <!-- <div id="footer">
-        {% block footer %}{% endblock %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}"/>
-
-        <div class="row footer">
-            <div class="col-lg-6 with-love">
-                Made with love for TartanHacks: Beyond the Binary 2016
-            </div>
-            <div class="col-lg-2 footer-names">
-                Ashley Lai<br>
-                Celeste Neary<br>
-                John Pyun<br>
-                Shyam Raghavan
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-    </div> -->
-
     {% block scripts %}{% endblock %}
 </body>
 </html>
