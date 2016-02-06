@@ -37,7 +37,7 @@ body {
   position: absolute;
   height: 100px;
   bottom: 0;
-  background-color: #434343;
+  background-color: #777CC8;
   width: 100%;
   margin-left: 0;
   padding-top: 37px;
@@ -53,4 +53,5 @@ body {
   margin-left: 40px;
   height: 40px;
   width: 110px;
+  background-color: #6262C2;
 }

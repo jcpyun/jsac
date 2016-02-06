@@ -13,7 +13,7 @@
 
 {% block content %}
 <div class="build-page">
-    <form method="post" class="form-inline">{% csrf_token %}
+    <form method="post" action="/signup/" class="form-inline">{% csrf_token %}
         <div class="cat-title">
             <h2 class="cat-title-txt">Build Your University Profile</h2>
         </div>
@@ -30,7 +30,7 @@
                     <label class="form-label" for="coordinator">Coordinator</label>
                 </div>
                 <div class="col-xs-6 col-md-4 col-lg-4 form-input-col">
-                    <input type="text" class="form-control" id="coordinator" name="coordinator">
+                    <input type="text" class="form-control" id="university" name="coordinator">
                 </div>
             </div>
             <div class="form-row row">
@@ -38,7 +38,7 @@
                     <label class="form-label" for="email">Contact Email</label>
                 </div>
                 <div class="col-xs-6 col-md-4 col-lg-4 form-input-col">
-                    <input type="text" class="form-control" id="email" name="email">
+                    <input type="text" class="form-control" id="university" name="email">
                 </div>
             </div>
             <div class="form-row row">
@@ -63,7 +63,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript">
-
+<script type="text/javascript" src="make-profile.js">
 </script>
 {% endblock %}

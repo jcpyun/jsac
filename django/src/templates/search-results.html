@@ -34,24 +34,20 @@
 				<div class="search-result-panel">
 					<div class="search-result-header">
 						<div class="search-result-img-container">
-							<img src="{{ uni.logo }}" class="img-circle search-result-img">
+							<img src="{{ uni.university_pic }}" class="img-circle search-result-img">
 						</div>
 						<div class="search-result-title">
 							<div class="search-result-uni-name">
-<<<<<<< HEAD
 								{{ uni.university_name }}
 							</div>
 							<div class="search-result-statistic">
 								{{ uni.topic }}
-=======
-								{{ uni.college }}
->>>>>>> 496369d2508f38863912bdbfdfe8eb4ac5b18f45
 							</div>
 						</div>
 					</div>
 					<div class="search-result-body">
 						<div class="search-result-description">
-							{{ uni.description }}
+							{{ uni.description|truncatechars:135 }}
 						</div>
 					</div>
 					<div class="search-result-footer">
