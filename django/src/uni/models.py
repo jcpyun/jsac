@@ -10,55 +10,55 @@ class University(models.Model):
     population = models.CharField(max_length=80, default='')
   
     #Awareness
-    aboutpolicies = models.BooleanField(default=True)
+    aboutpolicies = models.NullBooleanField(default=True)
     aboutpoliciesDesc = models.TextField(blank=True)
-    aboutpoliciesonline = models.BooleanField(default=False)
-    aboutreporting = models.BooleanField(default=False)
+    aboutpoliciesonline = models.NullBooleanField(default=False)
+    aboutreporting = models.NullBooleanField(default=False)
     aboutreportingDesc = models.TextField(blank=True)
-    aboutreportingonline = models.BooleanField(default=False)
+    aboutreportingonline = models.NullBooleanField(default=False)
 
     #Training
-    consent = models.BooleanField(default=False)
+    consent = models.NullBooleanField(default=False)
     consentDesc = models.TextField(blank=True)
-    sexualassault = models.BooleanField(default=False)
+    sexualassault = models.NullBooleanField(default=False)
     sexualassaultDesc = models.TextField(blank=True)
-    sexualharassment = models.BooleanField(default=False)
+    sexualharassment = models.NullBooleanField(default=False)
     sexualharassmentDesc = models.TextField(blank=True)
-    stalking = models.BooleanField(default=False)
+    stalking = models.NullBooleanField(default=False)
     stalkingDesc = models.TextField(blank=True)
-    datingviolence = models.BooleanField(default=False)
+    datingviolence = models.NullBooleanField(default=False)
     datingviolenceDesc = models.TextField(blank=True)
-    domesticviolence = models.BooleanField(default=False)
+    domesticviolence = models.NullBooleanField(default=False)
     domesticviolenceDesc = models.TextField(blank=True)
    
     #Statistics
-    oncampusreports = models.BooleanField(default=False)
+    oncampusreports = models.NullBooleanField(default=False)
     oncampusreportsDesc = models.TextField(blank=True)
-    allreports = models.BooleanField(default=False)
+    allreports = models.NullBooleanField(default=False)
     allreportsDesc = models.TextField(blank=True)
-    climatestudy = models.BooleanField(default=False)
+    climatestudy = models.NullBooleanField(default=False)
     climatestudyDesc = models.TextField(blank=True)
 
 
     #Groups
-    titleixoffice = models.BooleanField(default=False)
+    titleixoffice = models.NullBooleanField(default=False)
     titleixofficeDesc = models.TextField(blank=True)
-    volunteergroup = models.BooleanField(default=False)
+    volunteergroup = models.NullBooleanField(default=False)
     volunteergroupDesc = models.TextField(blank=True)
-    studentinitiative = models.BooleanField(default=False)
+    studentinitiative = models.NullBooleanField(default=False)
     studentinitiativeDesc = models.TextField(blank=True)
-    mensgroup = models.BooleanField(default=False)
+    mensgroup = models.NullBooleanField(default=False)
     mensgroupDesc = models.TextField(blank=True)
-    otheroffices = models.BooleanField(default=False)
+    otheroffices = models.NullBooleanField(default=False)
     otherofficesDesc = models.TextField(blank=True)
 
 
     #policies
-    riskreduction = models.BooleanField(default=False)
+    riskreduction = models.NullBooleanField(default=False)
     riskreductionDesc = models.TextField(blank=True)
-    primaryprevention = models.BooleanField(default=False)
+    primaryprevention = models.NullBooleanField(default=False)
     primarypreventionDesc = models.TextField(blank=True)
-    facultystafftraining = models.BooleanField(default=False)
+    facultystafftraining = models.NullBooleanField(default=False)
     facultystafftrainingDesc = models.CharField(max_length=80, default='')
 
 
