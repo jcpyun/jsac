@@ -3,23 +3,56 @@
 
 {% block head %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/university-page.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/build_profile.css' %}"/>
 {% endblock %}
 
 {% block navbar %}
 	{% include 'navbar.html' %}
+    {% include 'head_css.html' %}
 {% endblock %}
 
 {% block title %}University{% endblock %}
 
 {% block content %}
 <div class="build-page">
-    <form method="post">{% csrf_token %}
-        <div class="row cat-title first-cat">
-            <h2 class="cat-title-txt">Build Your University Profile</h2>
-            <label for="university">University</label><input type="text" id="university" name="university"><br>
-            <label for="coordinator">Coordinator</label><input type="text" id="coordinator" name="coordinator"><br>
-            <label for="email">Contact Email</label><input type="text" id="email" name="email"><br>
-            <label for="logo">Logo URL</label><input type="text" id="logo" name="logo"><br>
+    <form method="post" class="form-inline">{% csrf_token %}
+        <div class="img-fade  cat-title first-cat">
+            <h2 class="img-fade2  cat-title-txt">Build Your University Profile</h2>
+            </br> 
+            
+    
+            <div class="form-group row">
+                
+                <div class="col-md-4">
+                    <label for="university">University</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="university" name="university">
+                </div>
+            </div></br>
+           
+            <div class="form-group row">
+                
+                <div class="col-md-8">
+                    <label for="coordinator">Coordinator</label>
+                    <input type="text" class="form-control" id="coordinator" name="coordinator">
+                </div>
+            </div></br>
+            
+            <div class="form-group row">
+                <div class="col-md-8">
+                    <label for="email">Contact Email</label>
+                    <input type="text" class="form-control" id="email" name="email">
+         
+                </div>
+            </div></br>
+            
+            <div class="form-group row">
+                <div class="col-md-8">
+                    <label for="logo">Logo URL</label>
+                    <input type="text" class="form-control" id="logo" name="logo">
+                </div>
+            </div></br>
         </div>
         <div class="row build-footer">
             <div class="build-info">
