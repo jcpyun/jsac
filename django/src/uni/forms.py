@@ -6,14 +6,10 @@ from .models import *
 
 
 
-class userForm(ModelForm):
+class University(ModelForm):
     class Meta:
         model= University
-        fields=['college',
-                'state',
-                'city',
-                'population',
-                'checktest',]
+        exclude=['']
 
 # class ArticleForm(ModelForm):
 # ...     class Meta:
