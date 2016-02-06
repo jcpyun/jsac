@@ -99,50 +99,51 @@ class SearchPage(View):
 class CreateUniv(View):
     def post(self, request):
         data = request.POST
-        print dict(data)
-        instance = University(college="CMU") #here, we'd get the current session's university
-        instance.riskreduction = data.get('policies-riskreduction')
+        university_data = UniversityData.objects.get(id=data.get("uni_id")) #here, we'd get the current session's university
+        instance = University(college=university_data)
+        instance.save()
+        instance.riskreduction = bool(data.get('policies-riskreductiondesc'))
         instance.riskreductionDesc = data.get('policies-riskreductiondesc')
-        instance.primaryprevention = data.get('policies-primaryprevention')
+        instance.primaryprevention = bool(data.get('policies-primarypreventiondesc'))
         instance.primarypreventionDesc = data.get('policies-primarypreventiondesc')
-        instance.facultystafftraining = data.get('policies-facultystafftraining')
+        instance.facultystafftraining = bool(data.get('policies-facultystafftrainingdesc'))
         instance.facultystafftrainingDesc = data.get('policies-facultystafftrainingdesc')
 
-        instance.titleixoffice = data.get('groups-titleixoffice')
+        instance.titleixoffice = bool(data.get('groups-titleixofficedesc'))
         instance.titleixofficeDesc = data.get('groups-titleixofficedesc')
-        instance.volunteergroup = data.get('groups-volunteergroup')
+        instance.volunteergroup = bool(data.get('groups-volunteergroupdesc'))
         instance.volunteergroupDesc = data.get('groups-volunteergroupdesc')
-        instance.studentinitiative = data.get('groups-studentinitiative')
+        instance.studentinitiative = bool(data.get('groups-studentinitiativedesc'))
         instance.studentinitiativeDesc = data.get('groups-studentinitiativedesc')
-        instance.mensgroup = data.get('groups-mensgroup')
+        instance.mensgroup = bool(data.get('groups-mensgroupdesc'))
         instance.mensgroupDesc = data.get('groups-mensgroupdesc')
-        instance.otheroffices = data.get('groups-otheroffices')
+        instance.otheroffices = bool(data.get('groups-otherofficesdesc'))
         instance.otherofficesDesc = data.get('groups-otherofficesdesc')
 
-        instance.oncampusreports = data.get('stats-oncampusreports')
+        instance.oncampusreports = bool(data.get('stats-oncampusreportsdesc'))
         instance.oncampusreportsDesc = data.get('stats-oncampusreportsdesc')
-        instance.allreports = data.get('stats-allreports')
+        instance.allreports = bool(data.get('stats-allreportsdesc'))
         instance.allreportsDesc = data.get('stats-allreportsdesc')
-        instance.climatestudy = data.get('stats-climatestudy')
+        instance.climatestudy = bool(data.get('stats-climatestudydesc'))
         instance.climatestudyDesc = data.get('stats-climatestudydesc')
 
-        instance.consent = data.get('training-consent')
+        instance.consent = bool(data.get('training-consentdesc'))
         instance.consentDesc = data.get('training-consentdesc')
-        instance.sexualassault = data.get('training-sexualassault')
+        instance.sexualassault = bool(data.get('training-sexualassaultdesc'))
         instance.sexualassaultDesc = data.get('training-sexualassaultdesc')
-        instance.sexualharassment = data.get('training-sexualharassment')
+        instance.sexualharassment = bool(data.get('training-sexualharassmentdesc'))
         instance.sexualharassmentDesc = data.get('training-sexualharassmentdesc')
-        instance.stalking = data.get('training-stalking')
+        instance.stalking = bool(data.get('training-stalkingdesc'))
         instance.stalkingDesc = data.get('training-stalkingdesc')
-        instance.datingviolence = data.get('training-datingviolence')
+        instance.datingviolence = bool(data.get('training-datingviolencedesc'))
         instance.datingviolenceDesc = data.get('training-datingviolencedesc')
-        instance.domesticviolence = data.get('training-domesticviolence')
+        instance.domesticviolence = bool(data.get('training-domesticviolencedesc'))
         instance.domesticviolenceDesc = data.get('training-domesticviolencedesc')
 
-        instance.aboutpolicies = data.get('awareness-aboutpolicies')
+        instance.aboutpolicies = bool(data.get('awareness-aboutpoliciesdesc'))
         instance.aboutpoliciesDesc = data.get('awareness-aboutpoliciesdesc')
         instance.aboutpoliciesonline = data.get('awareness-aboutpoliciesonline')
-        instance.aboutreporting = data.get('awareness-aboutreporting')
+        instance.aboutreporting = bool(data.get('awareness-aboutreportingdesc'))
         instance.aboutreportingDesc = data.get('awareness-aboutreportingdesc')
         instance.aboutreportingonline = data.get('awareness-aboutreportingonline')
 
@@ -157,11 +158,13 @@ class BuildProfile(View):
         return render(request, 'build-profile.html')
     def post(self, request):
         data = request.POST
-        instance = University()
-        instance.college = data.get('college')
+        instance = UniversityData()
+        instance.name = data.get('university')
         instance.logo = data.get('logo')
+        instance.coordinator = data.get('coordinator')
+        instance.coordinator_email = data.get('email')
         instance.save()
-        return redirect('/form-information/')
+        return HttpResponseRedirect('/policyform/%d' % instance.id)
 
 def create_uni(request):
     template="form.html"
@@ -192,5 +195,9 @@ def university_page(request):
     return render(request,template,context)
 
 class PolicyForm(View):
-    def get(self, request):
-        return render(request, 'policy_form.html')
+    def get(self, request, uni_id):
+        context = {}
+        context["uni_id"] = uni_id
+        return render(request, 'policy_form.html', context)
+
+

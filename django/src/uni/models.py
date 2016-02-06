@@ -2,8 +2,17 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+class UniversityData(models.Model):
+    name = models.CharField(max_length=100, default='')
+    logo = models.CharField(max_length=300, default='')
+    coordinator = models.CharField(max_length=100, default='')
+    coordinator_email = models.CharField(max_length=100, default='')
+
+    def __unicode__(self):
+        return self.name
+
 class University(models.Model):
-    college = models.CharField(max_length=80, default='')
+    college = models.OneToOneField(UniversityData, related_name='form_data')
     logo= models.TextField(blank=True)
     state = models.CharField(max_length=80, default='')
     city = models.CharField(max_length=80, default='')
@@ -60,7 +69,3 @@ class University(models.Model):
     primarypreventionDesc = models.TextField(blank=True)
     facultystafftraining = models.NullBooleanField(default=False)
     facultystafftrainingDesc = models.CharField(max_length=80, default='')
-
-
-    def __unicode__(self):
-        return self.college

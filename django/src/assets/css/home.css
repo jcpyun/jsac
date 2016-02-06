@@ -21,7 +21,7 @@ body {
   margin-top: 25px;
 }
 .search .search-bar .search-box {
-  width: 400px;
+  width: 100%;
   padding: 10px 0 10px 15px;
   border-radius: 5px;
   margin-left: -14px;

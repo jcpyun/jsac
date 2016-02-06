@@ -39,6 +39,7 @@
 
 <form method="POST" action="/create_uni/">
 	{% csrf_token %}
+	<input type="hidden" name="uni_id" value="{{ uni_id }}">
 	<div class="row collapsing-row first-row active">
 
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
