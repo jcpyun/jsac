@@ -20,21 +20,192 @@
     </div>
     <div class="row univ-name">
         <h1 class="univ-name-txt">Carnegie Mellon University</h1>
+        <h4 class="univ-name-txt"> {{ data.state }} </h4>
+        <h4 class="univ-name-txt"> {{ data.city }} </h4>
     </div>
+    </br>
+    </br>
+    </br>
+
     <div class="row cat-title first-cat">
+        <h3 class="cat-title-txt">Policies</h3>
+    <h5>Risk Reduction:</h5>
+    {% if data.riskreduction %}
+    {{ data.riskreductionDesc }}
+    {% else %}
+    <h6>No Risk Reduction Implemented</h6>
+    {% endif %}
+    </br>
+    <h5>Primary Prevention:</h5>
+    {% if data.primaryprevention %}
+    {{ data.primarypreventionDesc }}
+    {% else %}
+    <h6>No Primary Prevention Implemented</h6>
+    {% endif %}
+    </br>
+    
+    <h5>Faculty Staff Training</h5>
+    {% if data.facultystafftraining %}
+    {{ data.facultystafftrainingDesc }}
+    {% else %}
+    <h6>No Faculty Staff Training is being Implemented</h6>
+    {% endif %}
+    </br>
+    <h5>Regular Faculty Staff Training</h5>
+    {% if data.facultystafftrainingrepeated %}
+    {{ data.facultystafftrainingDescrepeated }}
+    {% else %}
+    <h6>No RegularFaculty Staff Training is being Implemented</h6>
+    {% endif %}
+    </br>
+    
+    </div>
+    <div class="row cat-title">
         <h3 class="cat-title-txt">Training</h3>
+        <h5>Consent Training</h5>
+        {% if data.consent %}
+        {{ data.consentDesc }}
+        {% else %}
+        <h6> No Consent Training is being Implemented </h6>
+        {% endif %}
+        </br>
+        <h5>Sexual Assault Training </h5>
+        {% if data.sexualassault %}
+        {{ data.sexualassaultDesc }}
+        {% else %}
+        <h6> No Sexual Assault Training is being Implemented </h6>
+        {% endif %}
+        <h5>Sexual Harassment</h5>
+        {% if data.sexualharassment %}
+        {{ data.sexualharassmentDesc }}
+        {% else %}
+        <h6> No Sexual Harassment Training is being Implemented </h6>
+        {% endif %}
+        </br>
+        <h5>Stalking</h5>
+        {% if data.stalking %}
+        {{ data.stalkingDesc }}
+        {% else %}
+        <h6> No Stalking Training is being Implemented </h6>
+        {% endif %}
+        </br>
+        
+        <h5>Dating Violence</h5>
+        {% if data.datingviolence %}
+        {{ data.datingviolenceDesc }}
+        {% else %}
+        <h6> No Dating Violence Training is being Implemented </h6>
+        {% endif %}
+        </br>
+        
+        <h5>Domestic Violence</h5>
+        {% if data.domesticviolence %}
+        {{ data.domesticviolenceDesc }}
+        {% else %}
+        <h6> No Domestic Violence Training is being Implemented </h6>
+        {% endif %}
+        </br>
+        </br>
+        
+        
     </div>
     <div class="row cat-title">
         <h3 class="cat-title-txt">Awareness</h3>
+        <h5>Policy Awareness<h5>
+        {% if data.aboutpolicies %}
+        {{ data.aboutpoliciesDesc }}
+        {% else %}
+        <h6>No Policy Awareness is being Implemented</h6>
+        {% endif %}
+        </br>
+        
+        <h5>Online Policy Awareness<h5>
+        {% if data.aboutpolicies %}
+        <h6>Online Policy Awareness is being implemented.
+        {% else %}
+        <h6>No Online Policy Awareness is being Implemented</h6>
+        {% endif %}
+        </br>
+        
+        <h5>Reporting Policy Awareness<h5>
+        {% if data.aboutreporting %}
+        {{ data.aboutreportingDesc }}
+        {% else %}
+        <h6>No Reporting Policy Awareness is being Implemented</h6>
+        {% endif %}
+        </br>
+        <h5>Reporting Online Policy Awareness<h5>
+        {% if data.aboutreportingOnline %}
+        <h6>Online Reporting Policy Awareness is being Implemented</h6>
+        {% else %}
+        <h6>No Reporting Policy Awareness is being Implemented</h6>
+        {% endif %}
+        </br>
+        
     </div>
-    <div class="row cat-title">
-        <h3 class="cat-title-txt">Policies</h3>
-    </div>
+    
     <div class="row cat-title">
         <h3 class="cat-title-txt">Groups</h3>
+        <h5>Title IX Office </h5>
+        {% if data.titleixoffice %}
+        {{ data.titleixofficeDesc }}
+        {% else %}
+        <h6>There are no Title IX Office on Campus</h6>
+        {% endif %}
+        </br>
+        <h5>Volunteer Group </h5>
+        {% if data.volunteergroup %}
+        {{ data.volunteergroupDesc }}
+        {% else %}
+        <h6>There are no volunteer groups on Campus</h6>
+        {% endif %}
+        </br>
+        <h5>Student Initiative </h5>
+        {% if data.studentinitiative %}
+        {{ data.studentinitiativeDesc }}
+        {% else %}
+        <h6>There are no studentinitiatives on Campus</h6>
+        {% endif %}
+        </br>
+        <h5>Mens Group </h5>
+        {% if data.mensgroup %}
+        {{ data.mensgroupDesc }}
+        {% else %}
+        <h6>There are no mens group on Campus</h6>
+        {% endif %}
+        </br>
+        <h5>Other Offices </h5>
+        {% if data.otheroffices%}
+        {{ data.otherofficesDesc }}
+        {% else %}
+        <h6>There are no other offices on Campus</h6>
+        {% endif %}
+        </br>
+        
     </div>
     <div class="row cat-title">
         <h3 class="cat-title-txt">Statistics</h3>
+        <h5>On Campus Reports Statistics</h5>
+        {% if data.oncampusreports %}
+        {{ data.oncampusreportsDesc }}
+        {% else %}
+        <h6> No on campus reports statistics are being reported </h6>
+        {% endif %}
+        </br>
+        <h5>All Reports Statistics</h5>
+        {% if data.allreports %}
+        {{ data.allreportsDesc }}
+        {% else %}
+        <h6> There aren't reports outside campus that are being reported </h6>
+        {% endif %}
+        </br>
+        <h5>Climates Study Statistics</h5>
+        {% if data.climatestudy %}
+        {{ data.climatestudyDesc }}
+        {% else %}
+        <h6> No climatestudy statistics are being reported </h6>
+        {% endif %}
+        </br>
     </div>
 </div>
 {% endblock %}
