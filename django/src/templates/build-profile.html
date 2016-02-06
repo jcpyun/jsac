@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/university-page.css' %}"/>
+{% endblock %}
+
+{% block navbar %}
+	{% include 'navbar.html' %}
+{% endblock %}
+
+{% block title %}University{% endblock %}
+
+{% block content %}
+<div class="build-page">
+    <div class="row cat-title first-cat">
+        <h2 class="cat-title-txt">Build Your University Profile</h2>
+        <form>
+            University <input type="text" name="university"><br>
+            Coordinator <input type="text" name="coordinator"><br>
+            Contact Email <input type="text" name="email"><br>
+            Logo URL <input type="text" name="logo"><br>
+        </form>
+    </div>
+    <div class="row build-footer">
+        <div class="build-info">
+            First, we'll need your basic information.
+        </div>
+        <div class="build-continue">
+            <input type="submit" value="Continue">
+        </div>
+    </div>   
+</div>
+{% endblock %}
