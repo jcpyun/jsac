@@ -89,3 +89,9 @@ def create_uni(request):
 
     }
     return render(request,template,context)
+
+class PolicyForm(View):
+    def get(self, request):
+        return render(request, 'policy_form.html')
+
+
