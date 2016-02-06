@@ -8,6 +8,9 @@ class UniversityData(models.Model):
     coordinator = models.CharField(max_length=100, default='')
     coordinator_email = models.CharField(max_length=100, default='')
 
+    def __unicode__(self):
+        return self.name
+
 class University(models.Model):
     college = models.OneToOneField(UniversityData, related_name='form_data')
     logo= models.TextField(blank=True)
@@ -66,7 +69,3 @@ class University(models.Model):
     primarypreventionDesc = models.TextField(blank=True)
     facultystafftraining = models.NullBooleanField(default=False)
     facultystafftrainingDesc = models.CharField(max_length=80, default='')
-
-
-    def __unicode__(self):
-        return self.college

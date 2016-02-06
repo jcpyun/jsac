@@ -99,8 +99,9 @@ class SearchPage(View):
 class CreateUniv(View):
     def post(self, request):
         data = request.POST
-        print dict(data)
-        instance = University(college="CMU") #here, we'd get the current session's university
+        university_data = UniversityData.objects.get(id=data.get("uni_id")) #here, we'd get the current session's university
+        instance = University(college=university_data)
+        instance.save()
         instance.riskreduction = data.get('policies-riskreduction')
         instance.riskreductionDesc = data.get('policies-riskreductiondesc')
         instance.primaryprevention = data.get('policies-primaryprevention')
@@ -157,11 +158,13 @@ class BuildProfile(View):
         return render(request, 'build-profile.html')
     def post(self, request):
         data = request.POST
-        instance = University()
-        instance.college = data.get('college')
+        instance = UniversityData()
+        instance.name = data.get('university')
         instance.logo = data.get('logo')
+        instance.coordinator = data.get('coordinator')
+        instance.coordinator_email = data.get('email')
         instance.save()
-        return redirect('/form-information/')
+        return HttpResponseRedirect('/policyform/%d' % instance.id)
 
 def create_uni(request):
     template="form.html"
@@ -192,5 +195,9 @@ def university_page(request):
     return render(request,template,context)
 
 class PolicyForm(View):
-    def get(self, request):
-        return render(request, 'policy_form.html')
+    def get(self, request, uni_id):
+        context = {}
+        context["uni_id"] = uni_id
+        return render(request, 'policy_form.html', context)
+
+
