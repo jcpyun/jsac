@@ -8,5 +8,6 @@ class university(models.Model):
     state=models.CharField(max_length=80)
     city=models.CharField(max_length=80)
     population=models.CharField(max_length=80)
+    checktest=models.BooleanField(default=True)
     def __unicode__(self):
         return self.college
