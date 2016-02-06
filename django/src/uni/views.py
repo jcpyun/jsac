@@ -73,8 +73,26 @@ class SearchPage(View):
         context = {}
         query = request.GET.get("q")
         query = query.split(",")
-        context["universities"] = fakeResultsData
+        unis = University.objects.all()
+        result = []
+        if (query[0] == "consent"):
+            for i in range(0, len(unis)):
+                if unis[i].consent == True:
+                    result.append(unis[i])
+
+        if (query[0] == "sexual assault"):
+            for i in range(0, len(unis)):
+                if unis[i].sexualassault == True:
+                    result.append(unis[i])
+
+        if (query[0] == "primary prevention"):
+            for i in range(0, len(unis)):
+                if unis[i].primaryprevention == True:
+                    result.append(unis[i])
+        
+        context["universities"] = result
         context["q"] = query
+        context["query0"] = query[0]
         return render(request, 'search-results.html', context)
 
 class CreateUniv(View):

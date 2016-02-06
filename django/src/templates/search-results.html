@@ -47,7 +47,13 @@
 					</div>
 					<div class="search-result-body">
 						<div class="search-result-description">
-							{{ uni.description|truncatechars:110 }}
+							{% if query0 == "consent" %}
+							{{ uni.consentDesc|truncatechars:110 }}
+							{% elif query0 == "primary prevention" %}
+							{{ uni.primarypreventionDesc|truncatechars:110 }}
+							{% elif query0 == "sexual assault" %}
+							{{ uni.sexualassaultDesc|truncatechars:110 }}
+							{% endif %}
 						</div>
 					</div>
 					<div class="search-result-footer">
