@@ -148,9 +148,9 @@ class CreateUniv(View):
         return redirect('/university_page/')
 
 class BuildProfile(View):
-    def get(request):
+    def get(self, request):
         return render(request, 'build-profile.html')
-    def post(request):
+    def post(self, request):
         data = request.POST
         instance = University()
         instance.college = data.get('college')
