@@ -3,7 +3,13 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search-results.css' %}"/>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:600,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tagit/jquery.tagit.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tagit/tagit.ui-zendesk.css' %}"/>
+    <script src="{% static 'js/tag-it.min.js' %}"></script>
+    <script src="{% static 'js/autocomplete.js' %}"></script>
 {% endblock %}
 
 {% block title %}Browse{% endblock %}
@@ -13,15 +19,12 @@
     <div class="hero-title" style="font-size:200%;">
         Discover strategies for primary prevention
     </div>
-    <form class="search-form row" action="/search">
-        <div class="search-bar col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-            <input type="text"
-            name="q"
-            placeholder="consent"
-            class="search-box">
-            <button class="reset-this" action=""><i class="glyphicon glyphicon-search search-icon"></i></button>
-        </div>
-    </form>
+    <div class="search-bar col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+        <ul id="search-area" class="">
+            <!-- Existing list items will be pre-added to the tags -->
+        </ul>
+        <button class="reset-this search-btn"><i class="glyphicon glyphicon-search search-icon-home"></i></button>
+    </div>
 </div>
 <div class="info-block">
     <div class="row info-row">
@@ -63,3 +66,5 @@
     </div>
 </div>
 {% endblock %}
+
+
