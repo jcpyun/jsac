@@ -4,6 +4,7 @@ from django.db import models
 
 class University(models.Model):
     college = models.CharField(max_length=80, default='')
+    logo= models.TextField(blank=True)
     state = models.CharField(max_length=80, default='')
     city = models.CharField(max_length=80, default='')
     population = models.CharField(max_length=80, default='')

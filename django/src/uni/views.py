@@ -67,6 +67,7 @@ fakeResultsData = [
     },
 ]
 
+
 class SearchPage(View):
     def get(self, request):
         context = {}
@@ -90,6 +91,15 @@ def create_uni(request):
     }
     return render(request,template,context)
 
+
+pics=[
+    {
+        "pitt": "https://upload.wikimedia.org/wikipedia/commons/5/57/PittPanthers.png",
+    },
+    {
+        "columbia": "http://vignette2.wikia.nocookie.net/nba/images/c/c7/Columbia_University.png/revision/latest?cb=20110506170850",
+    },
+]
 def university_page(request):
     template="university_page.html" 
     alluni= University.objects.all()
@@ -97,10 +107,11 @@ def university_page(request):
     for x in alluni:
         if x.college=="CMU":
             data_dump=x
-
+    
     context={
         "data":data_dump,
-
+        "pitt": "https://upload.wikimedia.org/wikipedia/commons/5/57/PittPanthers.png",
+         "columbia": "http://vignette2.wikia.nocookie.net/nba/images/c/c7/Columbia_University.png/revision/latest?cb=20110506170850",
     }
     return render(request,template,context)
 
