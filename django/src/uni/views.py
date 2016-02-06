@@ -93,7 +93,7 @@ def create_uni(request):
 def university_page(request):
     template="university_page.html" 
     alluni= University.objects.all()
-    data=[]
+    data_dump=[]
     for x in alluni:
         if x.college=="CMU":
             data_dump=x
