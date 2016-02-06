@@ -103,3 +103,7 @@ def university_page(request):
 
     }
     return render(request,template,context)
+
+class PolicyForm(View):
+    def get(self, request):
+        return render(request, 'policy_form.html')
