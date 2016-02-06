@@ -26,6 +26,7 @@ urlpatterns = [
 
 
     url(r'^$','uni.views.home',name='home'),
-    url(r'^search$', SearchPage.as_view())
+    url(r'^search$', SearchPage.as_view()),
+    url(r'^policyform$', PolicyForm.as_view()),
 
 ]

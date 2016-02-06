@@ -1,10 +1,143 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block head %}
+	<link href="{% static 'css/policy_form.css' %}" rel="stylesheet">
+	<script src="{% static 'js/policy_form.js' %}"></script>
+{% endblock %}
+
 {% block navbar %}
 	{% include 'navbar.html' %}
 {% endblock %}
 
 {% block content %}
-	
+	<div class="row row-bar">
+		<div class="bar col-xs-3 col-md-3 first-bar" data-num="1">
+		</div>
+		<div class="bar col-xs-3 col-md-3 second-bar" data-num="2">
+		</div>
+		<div class="bar col-xs-3 col-md-3 third-bar" data-num="3">
+		</div>
+		<div class="bar col-xs-3 col-md-3 fourth-bar" data-num="4">
+		</div>
+		<div class="circle first half-empty">
+		</div>
+		<div class="circle second">
+		</div>
+		<div class="circle third">
+		</div>
+		<div class="circle fourth">
+		</div>
+		<div class="circle fifth ">
+		</div>
+		<div class="under-text first-text">Training</div>
+		<div class="under-text second-text">Awareness</div>
+		<div class="under-text third-text">Policies</div>
+		<div class="under-text fourth-text">Groups</div>
+		<div class="under-text fifth-text">Statistics</div>
+	</div>
+
+
+	<div class="row collapsing-row">
+
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a class="link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Consent
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		         	<i class="glyphicon glyphicon-record select-circle"></i>Sexual Assault
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Stalking
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading light" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Dating & Domesting Violence
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        <textarea>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</textarea>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading dark" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed link-clicker" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+		          <i class="glyphicon glyphicon-record select-circle"></i>Sexual Harrassment
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		    <div class="down-arrow">
+	    	    </div>
+		      <div class="panel-body">
+		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+
+	<div class="row controls-row">
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<button class="control-btn btn prev-btn"><i style="margin-right:5px; font-size:80%;" class="glyphicon glyphicon-menu-left"></i>Previous</button>
+		</div>
+		<div class="col-md-offset-8 col-md-2 col-sm-offset-6 col-sm-3 col-xs-6">
+			<button class="control-btn btn next-btn">Next<i style="margin-left:5px; font-size:80%;" class="glyphicon glyphicon-menu-right"></i></button>
+		</div>
+	</div>
+
+
+
+
+
+
 {% endblock %}
