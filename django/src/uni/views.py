@@ -170,19 +170,14 @@ def create_uni(request):
     return render(request,template,context)
 
 
-def university_page(request):
+def university_page(request, uni_id):
     template="university_page.html"
-    alluni= University.objects.all()
-    data_dump=[]
-    for x in alluni:
-        if x.college=="CMU":
-            data_dump=x
-
-    context={
-        "data": data_dump,
-        "pitt": "https://upload.wikimedia.org/wikipedia/commons/5/57/PittPanthers.png",
-        "columbia": "http://vignette2.wikia.nocookie.net/nba/images/c/c7/Columbia_University.png/revision/latest?cb=20110506170850",
-    }
+    university = UniversityData.objects.get(id=int(uni_id))
+    form_data = university.form_data
+    context = {}
+    context["name"] = university.name
+    context["picture"] = university.logo
+    context["data"] = form_data
     return render(request,template,context)
 
 class PolicyForm(View):

@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', 'uni.views.home',name='home'),
     url(r'^create_uni/$', CreateUniv.as_view()),
-    url(r'^university_page/$', 'uni.views.university_page',name='university_page'),
+    url(r'^university_page/(?P<uni_id>[a-zA-Z0-9_.-]+)$$', 'uni.views.university_page',name='university_page'),
     url(r'^login/$', 'django.contrib.auth.views.login',name="login"),
     url(r'^signup/$', BuildProfile.as_view()),
     url(r'^logout/$', 'django.contrib.auth.views.logout',name="logout"),
