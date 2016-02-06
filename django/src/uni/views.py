@@ -50,6 +50,8 @@ mapping = {
     "awareness about reporting": "aboutreporting"
 }
 
+reverse_mapping = {mapping[key]: key for key in mapping}
+
 def getMatchesOfFields(fields):
     forms = University.objects.all()
     unis = []
@@ -71,17 +73,18 @@ class SearchPage(View):
             fields.append(mapping[q_word])
         matches = getMatchesOfFields(fields)
         universities = []
+        print matches
         for match in matches:
             for field in fields:
                 data = {}
                 data["university_name"] = match.college.name
-                data["topic"] = field
+                data["topic"] = reverse_mapping[field]
                 data["description"] = match.__getattribute__(field + "Desc")
                 data["university_pic"] = match.college.logo
-                university.append(data)
+                universities.append(data)
         import random
         context["q"] = query
-        context["university"] = university
+        context["universities"] = universities
         return render(request, 'search-results.html', context)
 
 class CreateUniv(View):
