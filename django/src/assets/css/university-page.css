@@ -1,6 +1,9 @@
 body {
   background-color: #f3f3f3;
 }
+.tab-content {
+  margin-bottom: 50px;
+}
 .univ-info {
   margin-top: 50px;
   margin-left: 0;
@@ -32,4 +35,7 @@ h3 {
 }
 h5 {
   font-weight: 700;
+}
+.tab-pane {
+  max-width: 40vw;
 }
