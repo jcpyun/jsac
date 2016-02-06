@@ -9,7 +9,7 @@ import datetime
 def home(request):
     template= "home.html"
     
-    form = University(request.POST or None)
+    form = university(request.POST or None)
     if form.is_valid():
         instance= form.save(commit=False)
       
@@ -79,13 +79,27 @@ class SearchPage(View):
 
 def create_uni(request):
     template="form.html"
-    form = University(request.POST or None)
+    form = university(request.POST or None)
     if form.is_valid():
         instance= form.save(commit=False)
       
         instance.save()
     context={
         "form": form,
+
+    }
+    return render(request,template,context)
+
+def university_page(request):
+    template="university_page.html" 
+    alluni= University.objects.all()
+    data=[]
+    for x in alluni:
+        if x.college=="CMU":
+            data_dump=x
+
+    context={
+        "data":data_dump,
 
     }
     return render(request,template,context)

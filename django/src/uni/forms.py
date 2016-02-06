@@ -6,7 +6,7 @@ from .models import *
 
 
 
-class University(ModelForm):
+class university(ModelForm):
     class Meta:
         model= University
         exclude=['']
