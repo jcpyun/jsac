@@ -81,6 +81,7 @@ class SearchPage(View):
                 data["topic"] = reverse_mapping[field]
                 data["description"] = match.__getattribute__(field + "Desc")
                 data["university_pic"] = match.college.logo
+                data["id"] = match.college.id
                 universities.append(data)
         import random
         context["q"] = query
