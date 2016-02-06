@@ -18,6 +18,33 @@
             <div class="site-title"><span class="IX-title">IX</span>EDU</div>
         </div>
     {% endblock %}
+
+    <div class="login-bar">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}?next=/home/">Logout</a>
+        {% else %}
+        <form class="navbar-form navbar-center"
+                method="POST"
+                action="{% url 'login' %}">{% csrf_token %}
+            <div class="form-group">
+                <input type= "text"
+                    class="form-control"
+                    name="username"
+                    placeholder="Username" />
+            </div>
+            <div class="form-group">
+                <input type="password"
+                    class="form-control"
+                    name="password"
+                    placeholder="Password" />
+            </div>
+            <button type="submit" class="btn btn-default">
+                <i class="fa fa-user"></i>Login
+            </button>
+        </form>
+        {% endif %}
+    </div>
+
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
         {% block footer %}{% endblock %}

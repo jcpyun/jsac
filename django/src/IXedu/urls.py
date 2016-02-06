@@ -20,6 +20,7 @@ from uni.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', 'uni.views.home',name='home'),
+    url(r'^create_uni/$', 'uni.views.create_uni',name='create_uni'),
     url(r'^login/$', 'django.contrib.auth.views.login',name="login"),
     url(r'^logout/$', 'django.contrib.auth.views.logout',name="logout"),
 

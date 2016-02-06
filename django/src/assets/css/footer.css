@@ -5,6 +5,7 @@
     color: #FFFFFF;
 
     margin-top: 400px;
+    margin-right: 0;
 }
 
 .with-love {
@@ -14,5 +15,5 @@
 .footer-names {
     margin-left: 75vw;
     margin-top: -1.4em;
-    width: 50vw;
+    width: 20vw;
 }

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" type="text/css">
+{% endblock %}
+
+{% block title %}Enter your information{% endblock %}
+
+{% block content %}
+<div class="create-form">
+    <form method='POST' action=''>{% csrf_token %}
+        {{ form }}
+        <input type='submit' name="button_1" value='WOW' />
+    </form>
+</div>
+{% endblock %}
