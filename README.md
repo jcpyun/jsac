@@ -11,4 +11,6 @@ Members:
 
 IX Edu is a framework to help institutions who are part of the Title IX initiative. The framework was built for colleges all around the nation to narrow down effective primary reduction and risk reduction strategies. 
 
-This application was built within 24 hour time frame. It is still in development. More features will be added soon. 
+This application was built within 24 hour time frame. It is still in development. More features will be added soon.
+
+ixedu.herokuapp.com 
