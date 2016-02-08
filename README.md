@@ -1,7 +1,5 @@
 # IX Edu by JSAC
 
-Members:
-
 This was an Award Winning Hackathon Project at Tartan Hacks. 
 
 Members:
